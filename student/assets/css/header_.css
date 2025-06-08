@@ -1,0 +1,129 @@
+   /* Фиксированное горизонтальное меню */
+.horizontal-menu {
+    position: fixed;       /* Фиксируем меню */
+    top: 0;                /* Прижимаем к верху окна */
+    left: 0;
+    width: 100%;           /* Ширина на всю ширину окна */
+    background-color: #343a40;
+    padding: 8px 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 10000;        /* Поверх всего контента */
+}
+
+/* Список пунктов меню */
+.horizontal-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;           /* Занимает всё доступное пространство слева */
+}
+
+/* Отступы между пунктами меню */
+.horizontal-menu ul li {
+    margin-right: 25px;
+}
+
+.horizontal-menu ul li:last-child {
+    margin-right: 0;
+}
+
+/* Стили ссылок меню */
+.horizontal-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.horizontal-menu ul li a:hover,
+.horizontal-menu ul li a.active {
+    background-color: #495057;
+    color: #fff;
+}
+
+.horizontal-menu ul li a i {
+    font-size: 16px;
+}
+
+/* Блок пользователя: фото и имя, позиционируется в правом верхнем углу меню */
+.user-panel {
+    position: absolute;
+    top: -6px;
+    right: 20px;
+    background-color: #343a40;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+    cursor: default;
+    z-index: 11000;
+}
+
+/* Аватар пользователя */
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Имя пользователя */
+.user-name {
+    font-size: 18px;
+}
+
+/* Блок с опциями, скрыт по умолчанию */
+.profile-options {
+    position: absolute;
+    top: 50px; /* чуть ниже аватара */
+    right: 0;
+    background-color: #343a40;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    min-width: 180px;
+    z-index: 12000;
+}
+
+/* Стили для каждой опции */
+.profile-option {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-option:hover {
+    background-color: #495057;
+}
+
+/* Показать опции при наведении на user-panel */
+.user-panel:hover .profile-options {
+    display: flex;
+}
+
+/* Чтобы контент не перекрывался меню, добавляем отступ сверху */
+body {
+    margin-top: 56px; /* Высота меню + паддинги */
+}

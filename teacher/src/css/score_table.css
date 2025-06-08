@@ -1,0 +1,64 @@
+.student-table {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .student-table .card-header {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border-bottom: none;
+  }
+  .student-table .table th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+  .student-table .table td {
+    vertical-align: middle;
+  }
+  .progress-container {
+    width: 100%;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    height: 6px;
+  }
+  .progress-bar {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #00b09b, #96c93d);
+  }
+  .badge-category {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 12px;
+  }
+  .action-buttons .btn {
+    border-radius: 20px;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    margin: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .student-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #e3f2fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: #1976d2;
+    font-weight: bold;
+  }
+  .student-name {
+    display: flex;
+    align-items: center;
+  }
+  .dataTables_wrapper .dataTables_info, 
+  .dataTables_wrapper .dataTables_filter input {
+    font-size: 0.875rem;
+  }

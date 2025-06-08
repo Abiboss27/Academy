@@ -1,0 +1,274 @@
+/* Основные стили страницы */
+body {
+    background-color: #f5f7fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(60,60,90,0.10);
+    padding: 32px 24px 40px 24px;
+}
+
+/* Заголовок профиля */
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-avatar_ {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #4e73df;
+    box-shadow: 0 4px 12px rgba(78, 115, 223, 0.4);
+    margin-bottom: 16px;
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2e59d9;
+}
+
+.profile-role {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #6c757d;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.profile-status {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #fff;
+    gap: 8px;
+    user-select: none;
+}
+
+.status-active {
+    background-color: #1cc88a;
+}
+
+.status-banned {
+    background-color: #e74a3b;
+}
+
+.status-pending {
+    background-color: #f6c23e;
+    color: #333;
+}
+
+/* Иконки в статусе */
+.profile-status i {
+    font-size: 1.2rem;
+}
+
+/* Сетка с информационными карточками */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Карточка с информацией */
+.profile-card {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4e73df;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-title i {
+    font-size: 1.5rem;
+    color: #2e59d9;
+}
+
+/* Элементы информации */
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.info-value {
+    font-weight: 500;
+    color: #222;
+    max-width: 60%;
+    text-align: right;
+    word-wrap: break-word;
+}
+
+/* Кнопка редактирования */
+.edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #4e73df;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(78, 115, 223, 0.4);
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.edit-btn i {
+    font-size: 1.2rem;
+}
+
+.edit-btn:hover {
+    background-color: #2e59d9;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .wrapper {
+        margin: 20px 16px;
+        padding: 24px 16px 32px 16px;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .info-value {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Модальное окно */
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 30px 40px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #4e73df;
+  text-align: center;
+}
+
+.modal-content label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #333;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="file"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.btn-save {
+  background-color: #4e73df;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-save:hover {
+  background-color: #2e59d9;
+}

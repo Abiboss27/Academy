@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="icon" type="image/x-icon" href="assets/images/logo.png">  
+    <title> Registration </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+      <!-- Additional CSS Files -->
+      <link rel="stylesheet" href="assets/css/fontawesome.css">
+      <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
+      <link rel="stylesheet" href="assets/css/owl.css">
+      <link rel="stylesheet" href="assets/css/lightbox.css">
+      <link rel="stylesheet" href="src/css/reg_teach.css">
+</head>
+<body>
+
+    
+    <div class="register-container">
+        <h1> Создать Учётная Запись </h1>
+        
+        <form action="register_process.php" method="post"  enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="FullName">ФИО*</label>
+                    <input type="text" class="form-control" id="FullName" name="FullName" 
+                           placeholder="Иванов Иван Иванович" required>
+                </div>
+        
+                <div class="form-group col-md-8">
+                    <label for="PictureLink">Фото профиля</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="PictureLink" name="PictureLink"
+                               accept="image/jpeg, image/png, image/gif">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" class="form-control" id="email" name="email"  placeholder="example@domain.com" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="BirthDate">Дата рождения*</label>
+                <input type="date" class="form-control" id="BirthDate" name="BirthDate" required>
+                <small class="form-text text-muted">Вы должны быть старше 13 лет</small>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="password">Пароль*</label>
+                    <input type="password" class="form-control" id="password" name="password" 
+                           placeholder="Не менее 8 символов" required>
+                    
+                </div>
+                
+                <div class="form-group col-md-8">
+                    <label for="confirmPassword">Подтверждение пароля*</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required
+                           placeholder="Повторите пароль">
+                </div>
+            </div>
+            
+            <button type="submit"  name="register-submit">Создать аккаунт</button>
+        </form>
+    </div>
+    </body>
+</html>

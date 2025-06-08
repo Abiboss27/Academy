@@ -1,0 +1,47 @@
+
+
+.enrolled-btn {
+    display: block;
+    background:rgb(39, 219, 66);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 0 15px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.enrolled-btn:hover {
+    background:rgb(30, 195, 49);
+}
+
+@media (max-width: 768px) {
+    .filters {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters button {
+        width: 100%;
+    }
+}
+.filters button {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    justify-self: end;
+    width: auto;
+    min-width: 150px;
+}
+
+.filters button:hover {
+    background-color: #4f46e5;
+    transform: translateY(-1px);
+}

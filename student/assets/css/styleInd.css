@@ -1,0 +1,279 @@
+:root {
+    --primary: #4e73df;
+    --primary-dark: #2e59d9;
+    --secondary: #858796;
+    --light: #f8f9fc;
+    --dark: #5a5c69;
+    --success: #1cc88a;
+    --danger: #e74a3b;
+    --warning: #f6c23e;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fb;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Уберите margin-left, чтобы контент не сдвигался */
+}
+
+.main-wrapper {
+    display: flex;
+    flex-grow: 1;
+    /* Если есть боковая панель, она и контент будут внутри этого контейнера */
+}
+
+/* Если есть боковая панель шириной 550px */
+.sidebar {
+    width: 550px;
+    background-color: #fff;
+    /* другие стили боковой панели */
+}
+
+/* Контент занимает всё оставшееся пространство */
+.content {
+    flex: 1;
+    padding: 20px;
+    /* убираем margin-left и width */
+    /* margin-left: 550px; */
+    /* width: calc(100% - 550px); */
+    background-color: #fff;
+}
+
+/* Исправляем .filters: используем grid, убираем display:flex */
+.filters {
+    background: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+    display: grid; /* вместо flex */
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr)); /* исправлено с 2750px на 275px */
+    gap: 15px;
+    align-items: end;
+}
+
+.filters input,
+.filters select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    transition: var(--transition);
+    width: 100%; /* чтобы занимали всю ширину ячейки */
+}
+
+.filters input:focus,
+.filters select:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.25);
+}
+
+.filters button {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    width: max-content;
+}
+
+.filters button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.price-filter {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.price-filter label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.price-filter input[type="radio"] {
+    width: auto;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.course-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.course-card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--dark);
+}
+
+.category {
+    background: #4f46e5;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin: 10px 15px;
+    align-self: flex-start;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #718096;
+    margin: 0 15px 15px;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.details {
+    padding: 0 15px 15px;
+    font-size: 0.85rem;
+    color: #4a5568;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.details span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.rating {
+    color: var(--warning);
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--dark);
+    margin: 10px 0;
+}
+
+.price s {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.enroll-btn,
+.enrolled-btn {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    transition: var(--transition);
+    margin-top: auto;
+}
+
+.enroll-btn {
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+.enroll-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.enrolled-btn {
+    background-color: var(--success);
+    color: white;
+    cursor: default;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .content {
+        margin-left: 0;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .filters {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Индивидуальные задержки для карточек */
+.course-card:nth-child(1) { animation-delay: 0.1s; }
+.course-card:nth-child(2) { animation-delay: 0.2s; }
+.course-card:nth-child(3) { animation-delay: 0.3s; }
+.course-card:nth-child(4) { animation-delay: 0.4s; }
+.course-card:nth-child(5) { animation-delay: 0.5s; }
+.course-card:nth-child(6) { animation-delay: 0.6s; }

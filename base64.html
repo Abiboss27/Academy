@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File to Base64 Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #007BFF;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 15px 0;
+    }
+
+    a {
+      color: #007BFF;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #333;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .pdf-container {
+      margin-top: 20px;
+    }
+
+    .file-type-info {
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Upload a File to Convert to Base64</h2>
+
+    <input type="file" id="fileInput" accept="image/*,application/pdf" />
+    <div class="file-type-info">Accepts Image (.jpg, .png, .gif) and PDF (.pdf) files</div>
+
+    <br /><br />
+
+    <img id="myImage" alt="Base64 Image" style="display:none; max-width: 300px;" />
+    <br /><br />
+
+    <div class="pdf-container" id="pdfContainer" style="display:none;">
+      <p>PDF file converted to Base64:</p>
+      <a id="downloadLink" download="file.pdf">Download PDF</a>
+    </div>
+
+    <textarea id="base64Text" rows="6" cols="50" readonly></textarea>
+    <br /><br />
+
+    <!-- New buttons for copying and clearing -->
+    <button id="copyButton">Copy Base64</button>
+    <button id="clearButton">Clear</button>
+  </div>
+
+  <script>
+    // Get elements
+    const fileInput = document.getElementById("fileInput");
+    const myImage = document.getElementById("myImage");
+    const pdfContainer = document.getElementById("pdfContainer");
+    const downloadLink = document.getElementById("downloadLink");
+    const base64Text = document.getElementById("base64Text");
+    const copyButton = document.getElementById("copyButton");
+    const clearButton = document.getElementById("clearButton");
+
+    // Handle file input change event
+    fileInput.addEventListener("change", function (event) {
+      const file = event.target.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        if (file.type.startsWith("image/")) {
+          // Image to Base64
+          reader.onload = function (e) {
+            const base64Url = e.target.result;
+
+            // Display the image
+            myImage.style.display = "block";
+            myImage.src = base64Url;
+
+            // Set up the download link for image
+            downloadLink.href = base64Url;
+            downloadLink.download = "image.webp";
+
+            // Set Base64 in the textarea
+            base64Text.value = base64Url;
+
+            // Hide the PDF container
+            pdfContainer.style.display = "none";
+          };
+
+          reader.readAsDataURL(file); // Read the image as Base64
+        } else if (file.type === "application/pdf") {
+          // PDF to Base64
+          reader.onload = function (e) {
+            const base64Url = e.target.result;
+
+            // Show PDF Base64 result
+            pdfContainer.style.display = "block";
+            downloadLink.href = base64Url;
+            downloadLink.download = "file.pdf";
+
+            // Set Base64 in the textarea
+            base64Text.value = base64Url;
+
+            // Hide the image
+            myImage.style.display = "none";
+          };
+
+          reader.readAsDataURL(file); // Read the PDF as Base64
+        } else {
+          alert("Invalid file type. Please upload an image or PDF.");
+        }
+      }
+    });
+
+    // Copy Base64 to clipboard
+    copyButton.addEventListener("click", function () {
+      base64Text.select();
+      document.execCommand("copy");
+      alert("Base64 copied to clipboard!");
+    });
+
+    // Clear all fields (image, Base64 text, and download link)
+    clearButton.addEventListener("click", function () {
+      myImage.style.display = "none";
+      pdfContainer.style.display = "none";
+      downloadLink.href = "";
+      base64Text.value = "";
+    });
+  </script>
+
+</body>
+</html>

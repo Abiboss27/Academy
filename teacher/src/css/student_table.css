@@ -1,0 +1,203 @@
+ :root {
+      --primary-color: #4e73df;
+      --secondary-color: #f8f9fc;
+      --accent-color: #2e59d9;
+      --text-dark: #5a5c69;
+      --text-light: #858796;
+      --success-color: #1cc88a;
+      --danger-color: #e74a3b;
+      --warning-color: #f6c23e;
+      --info-color: #36b9cc;
+    }
+    
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: #f8fafc;
+      color: var(--text-dark);
+    }
+    
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+      color: white;
+      border-radius: 12px 12px 0 0 !important;
+      padding: 1.25rem 1.5rem;
+    }
+    
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+    
+    .table {
+      border-collapse: separate;
+      border-spacing: 0 8px;
+    }
+    
+    .table thead th {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      font-weight: 600;
+      padding: 12px 15px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .table tbody tr {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+    
+    .table tbody tr:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .table td {
+      border: none;
+      padding: 15px;
+      vertical-align: middle;
+    }
+    
+    .table td:first-child {
+      border-radius: 8px 0 0 8px;
+    }
+    
+    .table td:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .badge {
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .btn {
+      border-radius: 6px;
+      font-weight: 600;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-sm {
+      padding: 5px 10px;
+      font-size: 0.875rem;
+    }
+    
+    .btn-danger {
+      background-color: var(--danger-color);
+      border-color: var(--danger-color);
+    }
+    
+    .btn-danger:hover {
+      background-color: #c82333;
+      border-color: #bd2130;
+      transform: translateY(-2px);
+    }
+    
+    .btn-default {
+      background-color: var(--secondary-color);
+      border-color: #d1d3e2;
+    }
+    
+    .btn-default:hover {
+      background-color: #e2e6ea;
+      border-color: #dae0e5;
+    }
+    
+    .rating-stars {
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .text-warning {
+      color: #f6c23e !important;
+    }
+    
+    .text-secondary {
+      color: #dddfeb !important;
+    }
+    
+    .tooltip-inner {
+      max-width: 300px;
+      padding: 10px 15px;
+      background-color: #0a0c11;
+      font-size: 0.875rem;
+      border-radius: 6px;
+    }
+    
+    .bs-tooltip-auto[x-placement^=top] .arrow::before, 
+    .bs-tooltip-top .arrow::before {
+      border-top-color: #13151b;
+    }
+    
+    .empty-state {
+      padding: 40px 0;
+      text-align: center;
+    }
+    
+    .empty-state i {
+      font-size: 5rem;
+      color: #07070b;
+      margin-bottom: 20px;
+    }
+    
+    .empty-state p {
+      font-size: 1.2rem;
+      color: #b7b9cc;
+    }
+    
+    @media (max-width: 768px) {
+      .table-responsive {
+        border-radius: 8px;
+      }
+      
+      .table thead {
+        display: none;
+      }
+      
+      .table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+      
+      .table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        border-radius: 0 !important;
+      }
+      
+      .table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-right: 15px;
+      }
+      
+      .table td:first-child {
+        border-radius: 8px 8px 0 0 !important;
+      }
+      
+      .table td:last-child {
+        border-radius: 0 0 8px 8px !important;
+      }
+    }

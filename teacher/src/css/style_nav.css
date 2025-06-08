@@ -1,0 +1,87 @@
+ :root {
+        --primary-color: #4e73df;
+        --success-color: #1cc88a;
+        --info-color: #36b9cc;
+        --warning-color: #f6c23e;
+        --dark-bg: #1a1a2e;
+        --dark-card: #16213e;
+        --dark-text: #f8f9fa;
+        --transition-speed: 0.3s;
+    }
+    
+    body {
+        transition: background-color var(--transition-speed);
+    }
+    
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    .border-left-primary {
+        border-left: 4px solid var(--primary-color) !important;
+    }
+    
+    .border-left-success {
+        border-left: 4px solid var(--success-color) !important;
+    }
+    
+    .border-left-info {
+        border-left: 4px solid var(--info-color) !important;
+    }
+    
+    .border-left-warning {
+        border-left: 4px solid var(--warning-color) !important;
+    }
+    
+    .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    }
+    
+    /* Dark Mode Styles */
+    .dark-mode {
+        background-color: var(--dark-bg);
+        color: var(--dark-text);
+    }
+    
+    .dark-mode .card {
+        background-color: var(--dark-card);
+        color: var(--dark-text);
+        border-color: #2a2a3a;
+    }
+    
+    .dark-mode .text-gray-800 {
+        color: var(--dark-text) !important;
+    }
+    
+    .dark-mode .text-primary,
+    .dark-mode .text-success,
+    .dark-mode .text-info,
+    .dark-mode .text-warning {
+        color: inherit !important;
+    }
+    
+    .dark-mode .btn-outline-secondary {
+        color: var(--dark-text);
+        border-color: var(--dark-text);
+    }
+    
+    .dark-mode .btn-outline-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    /* Animation for counters */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card-body {
+        animation: fadeIn 0.5s ease-out;
+    }

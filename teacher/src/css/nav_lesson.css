@@ -1,0 +1,133 @@
+  :root {
+        --primary-color: #4361ee;
+        --secondary-color: #3f37c9;
+        --accent-color: #4cc9f0;
+        --light-bg: #f8f9fa;
+        --dark-bg: #1a1a2e;
+        --dark-card: #16213e;
+        --text-light: #f8f9fa;
+        --text-dark: #212529;
+        --transition: all 0.3s ease;
+    }
+    
+    .dashboard-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: var(--transition);
+        overflow: hidden;
+        border: none;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+    
+    .primary-card {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: var(--text-light);
+    }
+    
+    .action-card {
+        background: var(--light-bg);
+        color: var(--text-dark);
+    }
+    
+    .dashboard-card .inner {
+        padding: 25px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .dashboard-card h3 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    
+    .dashboard-card p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+    
+    .dashboard-card .icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 5rem;
+        opacity: 0.2;
+        transition: var(--transition);
+        z-index: 1;
+    }
+    
+    .dashboard-card:hover .icon {
+        opacity: 0.3;
+        transform: scale(1.05);
+    }
+    
+    .action-link {
+        display: block;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.05);
+        text-align: center;
+        font-weight: 600;
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+    
+    .action-link:hover {
+        background: rgba(0, 0, 0, 0.1);
+        color: var(--secondary-color);
+    }
+    
+    /* Dark mode styles */
+    .dark-mode {
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+    }
+    
+    .dark-mode .content-wrapper {
+        background-color: var(--dark-bg);
+    }
+    
+    .dark-mode .action-card {
+        background: var(--dark-card);
+        color: var(--text-light);
+    }
+    
+    .dark-mode .action-link {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--accent-color);
+    }
+    
+    .dark-mode .action-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .theme-toggle {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 8px 16px;
+        font-weight: 500;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .theme-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    .dark-mode .theme-toggle {
+        background: var(--accent-color);
+        color: var(--dark-card);
+    }
